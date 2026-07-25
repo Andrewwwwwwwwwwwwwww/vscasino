@@ -24,7 +24,7 @@ public class CasinoConfig {
 
     private static final String DEFAULT_RP_URL =
             "https://github.com/Andrewwwwwwwwwwwwwww/vscasino/releases/download/v1.0.0/VSCasino-TexturePack.zip";
-    private static final String DEFAULT_RP_SHA1 = "899e6edeea6db99dd617131b44f77b9ea81d63a5";
+    private static final String DEFAULT_RP_SHA1 = "ab139a5f6c40799e2b10bfcaf252a53210fc1961";
 
     // ---- wagering ------------------------------------------------------------------------
 

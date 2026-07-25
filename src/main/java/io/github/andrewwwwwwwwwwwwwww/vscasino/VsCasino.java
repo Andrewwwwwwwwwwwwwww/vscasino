@@ -95,7 +95,8 @@ public class VsCasino implements ModInitializer {
                 List.of(
                         Lang.tr(player, "vscasino.menu.casino.button.desc", "Try your luck with Quest Shards."),
                         Lang.tr(player, "vscasino.menu.balance", "Balance: %d Quest Shards",
-                                Wager.balance(player))));
+                                Wager.balance(player))),
+                "vscasino:casino_logo");
     }
 
     private static LiteralArgumentBuilder<CommandSourceStack> casinoCommand() {

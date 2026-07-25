@@ -260,8 +260,8 @@ public class SlotsMenu extends ChestMenu {
         info.add(t("vscasino.menu.balance", "Balance: %d Quest Shards", Wager.balance(player)));
         info.add(t("vscasino.slots.paytable", "Three of a kind pays big; two pays small."));
         info.add(t("vscasino.slots.rtp", "Payout rate: %d%%", cfg.slotsRtpPercent));
-        container.setItem(INFO_SLOT, Guis.button(Items.GOLD_NUGGET,
-                t("vscasino.menu.slots.title", "Slots"), ChatFormatting.YELLOW, info));
+        container.setItem(INFO_SLOT, Guis.button(Items.GOLD_BLOCK,
+                t("vscasino.menu.slots.title", "Slots"), ChatFormatting.YELLOW, info, "vscasino:slots_icon"));
 
         for (int i = 0; i < REEL_SLOTS.length; i++) {
             if (reels == null || reels[i] == null) {

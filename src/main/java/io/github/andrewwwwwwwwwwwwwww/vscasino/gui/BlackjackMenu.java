@@ -169,12 +169,19 @@ public class BlackjackMenu extends ChestMenu {
             if (isActive) lore.add(t("vscasino.blackjack.active", "Playing this hand"));
             if (hand.result != null) lore.add(hand.result);
 
-            container.setItem(HAND_INFO[h], Guis.button(
-                    isActive ? Items.PLAYER_HEAD : Items.PAPER,
-                    g.hands.size() > 1
-                            ? t("vscasino.blackjack.hand_n", "Hand %d", h + 1)
-                            : t("vscasino.blackjack.you", "Your hand"),
-                    isActive ? ChatFormatting.YELLOW : ChatFormatting.GREEN, lore));
+            String handTitle = g.hands.size() > 1
+                    ? t("vscasino.blackjack.hand_n", "Hand %d", h + 1)
+                    : t("vscasino.blackjack.you", "Your hand");
+            if (hand.result != null) {
+                // The hand is decided (bust, win, push or lose) — show a face-down card rather
+                // than the "in progress" head/paper icon, so it's obvious at a glance the hand is over.
+                container.setItem(HAND_INFO[h], Guis.button(Items.MAP, handTitle,
+                        ChatFormatting.DARK_GRAY, lore, "vscasino:card_back"));
+            } else {
+                container.setItem(HAND_INFO[h], Guis.button(
+                        isActive ? Items.PLAYER_HEAD : Items.PAPER, handTitle,
+                        isActive ? ChatFormatting.YELLOW : ChatFormatting.GREEN, lore));
+            }
 
             for (int i = 0; i < hand.cards.size() && i < HAND_CARDS[h].length; i++) {
                 container.setItem(HAND_CARDS[h][i], hand.cards.get(i).toStack(player));

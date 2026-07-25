@@ -174,8 +174,8 @@ public class VideoPokerMenu extends ChestMenu {
         info.add(t("vscasino.menu.balance", "Balance: %d Quest Shards", Wager.balance(player)));
         info.add(t("vscasino.poker.paytable", "Jacks or better pays. Royal flush pays %dx.",
                 payout(HandRank.ROYAL_FLUSH)));
-        container.setItem(INFO_SLOT, Guis.button(Items.GOLD_NUGGET,
-                t("vscasino.menu.poker.title", "Video Poker"), ChatFormatting.AQUA, info));
+        container.setItem(INFO_SLOT, Guis.button(Items.BRICK,
+                t("vscasino.menu.poker.title", "Video Poker"), ChatFormatting.AQUA, info, "vscasino:poker_icon"));
 
         for (int i = 0; i < 5; i++) {
             if (g.hand.size() > i) {
@@ -185,7 +185,8 @@ public class VideoPokerMenu extends ChestMenu {
                                 : null));
                 if (g.phase == Phase.DRAW) {
                     container.setItem(HOLD_SLOTS[i], g.held[i]
-                            ? Guis.button(Items.DYE.lime(), t("vscasino.poker.held", "HELD"), ChatFormatting.GREEN)
+                            ? Guis.button(Items.DYE.lime(), t("vscasino.poker.held", "HELD"), ChatFormatting.GREEN,
+                                    null, "vscasino:held_marker")
                             : Guis.button(Items.DYE.gray(), t("vscasino.poker.not_held", "Discard"), ChatFormatting.DARK_GRAY, null, "vscasino:discard_marker"));
                 }
             } else {
